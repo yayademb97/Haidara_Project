@@ -1,5 +1,18 @@
 import Aos from "aos";
 import SliderImg from "../../assets/assets/images/mali_1.png";
+import WhatsappImg from "../../assets/assets/images/communication-whatsapp.png"
+import AssistanceImg from "../../assets/assets/images/assistance-bagages.png"
+import EnregistrementImg from "../../assets/assets/images/enregistrement-bagage.png"
+import SiegeImg from "../../assets/assets/images/choix-de-siège.png"
+import AccueilImg from "../../assets/assets/images/acceuil-aeroport.png"
+import congresImg from "../../assets/assets/images/congrès-seminaire.png"
+import SupervisionImg from "../../assets/assets/images/supervision-enregistrement.png"
+import SituationCritiqueImg from "../../assets/assets/images/situation-critique.png"
+import CoordinationituationCritiqueImg from "../../assets/assets/images/coordination-compagnie.png"
+import ConfirmationImg from "../../assets/assets/images/confirmation.png"
+import carteImg from "../../assets/assets/images/carte-embarquement.png"
+
+
 import {
   MdFamilyRestroom,
   MdOutlineParagliding,
@@ -23,6 +36,7 @@ import { BiSolidPlaneTakeOff } from "react-icons/bi";
 import { PiStudent } from "react-icons/pi";
 import { TbVip } from "react-icons/tb";
 import { useState } from "react";
+import { IoArrowForward } from "react-icons/io5";
 
 const Hero = () => {
   const responsives = {
@@ -113,11 +127,16 @@ const Hero = () => {
 
   const Explore = ({ image, service,  }) => {
     return (
-      <div>
-          <img src={image} alt={service} />
-          <span>3 Tours</span>
-          <div>
-              <p></p>
+      <div className="relative group overflow-hidden rounded-[10px] shadow-lg">
+          <img src={image} alt={service} className="w-full h-[350px] object-cover rounded-[10px] transition-transform duration-700 ease-in-out group-hover:scale-125" />
+          <span className="bg-orange rounded-lg px-5 text-white text-xs absolute top-5 right-5 uppercase font-bold leading-8 whitespace-pre">Premium</span>
+          <div className="absolute bottom-0 w-full bg-black bg-opacity-50 py-5 flex flex-col items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:bg-opacity-100">
+              <p className="text-green text-xl font-bold flex flex-col">Service dédié : <span className="text-white text-2xl group-hover:text-gray-800">{service}</span></p>
+              <div className="absolute -top-5 right-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <button className="bg-orange text-white p-2 rounded-full">
+                  <IoArrowForward className="text-xl" />
+                </button>
+              </div>
           </div>
       </div>
     )
@@ -261,14 +280,24 @@ const Hero = () => {
               </div>
 
               <div className="py-8">
-                {/* <Carousel
+                <Carousel
                   responsive={responsive}
                   infinite
                   autoPlay={true}
-                  itemClass="px-2 mb-6"
+                  itemClass="px-2 pb-6"
                 >
-
-                </Carousel> */}
+                  <Explore service="Communication via WhatsApp" image={WhatsappImg} />
+                  <Explore service="Gestion claire des bagages" image={AssistanceImg} />
+                  <Explore service="Enregistrement et embarquement" image={EnregistrementImg} />
+                  <Explore service="Choix de siège et surclassement" image={SiegeImg} />
+                  <Explore service="Accueil personnalisé dès l’atterrissage" image={AccueilImg} />
+                  <Explore service="Informations congrès et séminaires" image={congresImg} />
+                  <Explore service="Supervision de l'enregistrement" image={SupervisionImg} />
+                  <Explore service="Gestion des situations critique" image={SituationCritiqueImg} />
+                  <Explore service="Coordination avec les compagnies" image={CoordinationituationCritiqueImg} />
+                  <Explore service="Confirmation retour / arrivée estimée" image={ConfirmationImg} />
+                  <Explore service="Carte d’embarquement numérique" image={carteImg} />
+                </Carousel>
               </div>
           </div>
         </div>
