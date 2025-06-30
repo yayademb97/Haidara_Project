@@ -109,7 +109,7 @@ const Hero = () => {
       detail: "Pensé pour les familles et enfants(en voyage de groupe)",
     },
     {
-      title: "Voyage Humanitaire / étudiant",
+      title: "Humanitaire / étudiant",
       icon: <PiStudent />,
       detail: "Mobilité éducative ou solidaire (sanitaire).",
     },

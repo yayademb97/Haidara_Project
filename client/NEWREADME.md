@@ -1,9 +1,8 @@
 import React from "react";
-import ServiceImg from "../../assets/assets/images/customer-assistance-aeroport.png";
+import ServiceImg from "../../assets/assets/images/service_logo.png";
 import ServiceImg01 from "../../assets/assets/images/service-img-01.png";
 import { IoCheckmarkCircle } from "react-icons/io5";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
 
 const Services = () => {
   const categories = [
@@ -13,8 +12,7 @@ const Services = () => {
     { text: "Voyage d'affaires", tilt: "-rotate-6" },
     { text: "Voyage touristique", tilt: "-rotate-6" },
     { text: "Voyage familial", tilt: "-rotate-6" },
-    { text: "Voyage étudiant", tilt: "-rotate-6" },
-    { text: "Voyage médical", tilt: "-rotate-6" },
+    { text: "Voyage Humanitaire/étudiant", tilt: "-rotate-6" },
     { text: "Voyage VIP/Premium", tilt: "-rotate-6" },
   ];
 
@@ -26,7 +24,7 @@ const Services = () => {
             reverse && "flex-flow-reverse"
           }`}
         >
-          <div className="lg:w-1/2">
+          <div className="lg:1/2">
             <h6 className="text-green bg-[#ecf5e8] w-fit rounded-md px-5 py-2 font-bold">
               {title}
             </h6>
@@ -34,22 +32,22 @@ const Services = () => {
               {text}
             </h3>
             <p className="text-gray-600">
-              Un accompagnement fluide et humain pour simplifier chaque étape de
-              votre voyage, en toute confiance. Des services pensés pour
-              anticiper, guider et rassurer.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit . Quasi,
+              doloribus. Lorem ipsum dolor sit amet consectetur adipisicing
+              elit. Quasi, doloribus. Lorem ipsum dolor sit amet consectetur.
             </p>
+
             {children}
           </div>
-       
-        <div className="lg:w-1/2">
-          <div
-            className={`lg:flex w-full ${
-              reverse ? "justify-start" : "justify-end"
-            }`}
-          >
-            <img src={image} alt="" className="rounded-t-[300px]" />
+          <div className="lg:1/2">
+            <div
+              className={`lg:flex w-full ${
+                reverse ? "justify-start" : "justify-end"
+              }`}
+            >
+              <img src={image} alt="" className="rounded-t-[300px]" />
+            </div>
           </div>
-        </div>
         </div>
       </div>
     );
@@ -92,7 +90,7 @@ const Services = () => {
         text="Le service d’accompagnement le plus vivant et passionné du monde du voyage"
         title="Bienvenue chez Customer Assistance77"
       >
-        <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5">
+        <div>
           {categories.map((category) => (
             <Card
               key={category.text}
@@ -110,9 +108,9 @@ const Services = () => {
         reverse
       >
         <div className="flex justify-center items-center bg-gray-100 my-12">
-          <div className="bg-white p-8 rounded-lg shadow-xl flex lg:flex-row flex-col items-center lg:gap-16 gap-4 w-full justify-center ">
+          <div className="bg-white p-8 rounded-lg shadow-xl flex lg:flex-row flex-col items-center lg:gap-16 gap-4 w-full justify-center">
             <ProgressBar value={50} text="Clients Satisfaits" />
-            <ProgressBar value={50} text="Fiabilité - Services" />
+            <ProgressBar value={50} text="Fiabilité des services" />
           </div>
         </div>
       </Section>

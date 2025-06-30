@@ -4,6 +4,8 @@ import Header from "./components/Header/Header";
 import Hero from "./components/Hero/Hero";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Services from "./components/Services/Services";
+import Offers from "./components/Offers/Offers";
 
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
     <>
       <Header />
       <Hero />
+      <Services />
+      <Offers />
       <Footer />
     </>
   );
