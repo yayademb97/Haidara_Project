@@ -1,121 +1,118 @@
-import React from "react";
-import ServiceImg from "../../assets/assets/images/service_logo.png";
-import ServiceImg01 from "../../assets/assets/images/service-img-01.png";
-import { IoCheckmarkCircle } from "react-icons/io5";
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import React, { useState } from 'react'
+import { BsTrainLightrailFront } from 'react-icons/bs'
+import { FaBiking, FaBusAlt } from 'react-icons/fa'
+import { GiWoodenPier } from 'react-icons/gi'
+import { LiaWarehouseSolid } from 'react-icons/lia'
+import { IoArrowForward } from 'react-icons/io5'
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
-const Services = () => {
-  const categories = [
-    { text: "Aller Simple", tilt: "-rotate-6" },
-    { text: "Aller-retour", tilt: "-rotate-6" },
-    { text: "Multi-destinations", tilt: "-rotate-6" },
-    { text: "Voyage d'affaires", tilt: "-rotate-6" },
-    { text: "Voyage touristique", tilt: "-rotate-6" },
-    { text: "Voyage familial", tilt: "-rotate-6" },
-    { text: "Voyage Humanitaire/étudiant", tilt: "-rotate-6" },
-    { text: "Voyage VIP/Premium", tilt: "-rotate-6" },
-  ];
+const Offers = () => {
 
-  const Section = ({ title, text, children, image, reverse }) => {
-    return (
-      <div className="max-w-[1320px] mx-auto mt-16 px-3">
-        <div
-          className={`lg:flex gap-8 justify-between ${
-            reverse && "flex-flow-reverse"
-          }`}
-        >
-          <div className="lg:1/2">
-            <h6 className="text-green bg-[#ecf5e8] w-fit rounded-md px-5 py-2 font-bold">
-              {title}
-            </h6>
-            <h3 className="lg:text-5xl text-3xl font-bold pb-8 leading-tight">
-              {text}
-            </h3>
-            <p className="text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit . Quasi,
-              doloribus. Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Quasi, doloribus. Lorem ipsum dolor sit amet consectetur.
-            </p>
+    const [hoveredIndex, setHoveredIndex] = useState(null)
 
-            {children}
-          </div>
-          <div className="lg:1/2">
-            <div
-              className={`lg:flex w-full ${
-                reverse ? "justify-start" : "justify-end"
-              }`}
-            >
-              <img src={image} alt="" className="rounded-t-[300px]" />
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
 
-  const Card = ({ text, tilt }) => {
-    return (
-      <div
-        className={`flex items-center w-fit gap-2 p-4 border rounded-lg cursor-pointer transition-transform transform hover:scale-105 bg-white shadow-xl ${tilt}`}
-      >
-        <IoCheckmarkCircle className="text-xl text-orange" />
-        <span className="font-bold text-gray-800">{text}</span>
-      </div>
-    );
-  };
 
-  const ProgressBar = ({ value, text }) => {
-    return (
-      <div className="flex flex-col items-center">
-        <div className="w-28">
-          <CircularProgressbar
-            value={value}
-            text={`${value}%`}
-            styles={buildStyles({
-              pathColor: "#63Ab45",
-              textColor: "#000",
-              trailColor: "#d6d6d6",
-              backgroundColor: "#f8f8f8",
-            })}
-          />
-        </div>
-        <p className="font-bold mt-2">{text}</p>
-      </div>
-    );
-  };
+    const responsive = {
+        superLargeDesktop: {
+            breakpoint: { max: 4000, min: 3000 },
+            items: 4,
+        },
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 4,
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2,
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1,
+        },
+    }
+
+    const offers = [
+        {
+            icon: <LiaWarehouseSolid />,
+            image: "../../assets/assets/images/offer-1.png",
+            text: "Assistance 24h/24 et 7j/7, pour un accompagnement sans interruption.",
+        },
+        {
+            icon: <BsTrainLightrailFront />,
+            image: "../../assets/assets/images/offer-2.png",
+            text: "Coordination efficace entre votre arrivée à l'aéroport et votre enregistrement.",
+        },
+        {
+            icon: <FaBusAlt />,
+            image: "../../assets/assets/images/offer-3.png",
+            text: "Navettes et transferts aéroport organisés selon vos horaires.",
+        },
+        {
+            icon: <GiWoodenPier />,
+            image: "../../assets/assets/images/offer-4.png",
+            text: "Gestion fluide des situations d’embarquement ou de correspondance.",
+        },
+        {
+            icon: <FaBiking />,
+            image: "../../assets/assets/images/offer-5.png",
+            text: "Accompagnement personnalisé pour une mobilité douce à destination.",
+        },
+    ]
   return (
-    <div>
-      <Section
-        image={ServiceImg}
-        text="Le service d’accompagnement le plus vivant et passionné du monde du voyage"
-        title="Bienvenue chez Customer Assistance77"
-      >
-        <div>
-          {categories.map((category) => (
-            <Card
-              key={category.text}
-              text={category.text}
-              tilt={category.tilt}
-            />
-          ))}
-        </div>
-      </Section>
-
-      <Section
-        image={ServiceImg01}
-        text="L’opportunité idéale pour explorer, voyager, et se faire accompagner."
-        title="Explorez nos solutions voyage"
-        reverse
-      >
-        <div className="flex justify-center items-center bg-gray-100 my-12">
-          <div className="bg-white p-8 rounded-lg shadow-xl flex lg:flex-row flex-col items-center lg:gap-16 gap-4 w-full justify-center">
-            <ProgressBar value={50} text="Clients Satisfaits" />
-            <ProgressBar value={50} text="Fiabilité des services" />
+    <div className="bg-[url('../../assets/assets/images/offers-img.png')] pb-24">
+      <div className="max-w-[1320px] mx-auto py-24">
+          <div className="flex flex-col items-center">
+              <div className="relative w-fit px-8 py-2 flex items-center justify-center">
+                  <span className="bg-green rounded-md opacity-15 absolute w-full h-full z-10">
+                    <h6 className="text-orange relative font-semibold">Ce que nous proposons</h6>
+                  </span>
+              </div>
+                <h3 className="lg:text-5xl text-3xl font-bold pb-8 text-white lg:w-4/5 text-center py-4">
+                    Vivez une expérience de voyage authentique, accompagnée avec attention du départ à l’arrivée.
+                </h3>
           </div>
-        </div>
-      </Section>
-    </div>
-  );
-};
 
-export default Services;
+          <div className="py-8">
+                <Carousel responsive={responsive} autoPlay={true} itemClass="pb-6 px-2">
+                        {
+                            offers.map((offer, index) => (
+                                <div key={offer.image} className="relative group rounded-lg p-8" 
+                                style={{
+                                    backgroundImage: hoveredIndex === index ? `url(${offer.image})` : 'none',
+                                    backgroundColor: hoveredIndex === index ? "transparent" : "black",
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: "center"
+                                  }}
+
+                                  onMouseEnter={() => setHoveredIndex(index)}
+                                  onMouseLeave={() => setHoveredIndex(null)}
+                                >
+                                    {
+                                        hoveredIndex === index && (
+                                            <div className="absolute inset-0 bg-black opacity-50 rounded-[10px]"></div>
+                                        )
+                                    }
+                                    <div className="relative py-8 rounded-lg ">
+                                        <span className={`text-7xl ${hoveredIndex === index ? "text-green" : "text-orange" }`}>
+                                            {offer.icon}
+                                        </span>
+                                        <p className="text-white text-xl font-bold py-4">{offer.text}</p>
+                                        <p className="text-[#d3d3d3] leading-7">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                    </div>
+                                    <div className="absolute -bottom-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                                        <button className="bg-green text-white p-2 rounded-full">
+                                            <IoArrowForward className="text-xl" />
+                                        </button>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                </Carousel>
+          </div>
+      </div>
+    </div>
+  )
+}
+
+export default Offers

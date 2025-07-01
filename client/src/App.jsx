@@ -6,6 +6,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Services from "./components/Services/Services";
 import Offers from "./components/Offers/Offers";
+import Tours from "./components/Tours/Tours";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Hero />
       <Services />
       <Offers />
+      <Tours />
       <Footer />
     </>
   );

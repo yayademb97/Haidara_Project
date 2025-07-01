@@ -226,7 +226,7 @@ const Hero = () => {
         </div>
       </section>
 
-      <section className="bg-[#F3F8F6] bg-[url('bg-shape-01.jpg')]">
+      <section className="bg-[#F3F8F6] bg-[url('/bg-07.png')]">
         <div className="relative z-10 max-w-[1320px] px-6 mx-auto -mt-24">
           <Carousel
             responsive={responsives}
@@ -276,7 +276,7 @@ const Hero = () => {
                       <span className="bg-green rounded-md opacity-15 absolute w-full h-full z-10"></span>
                       <h6 className="text-green relative font-semibold">Services personnalisés pour voyageurs</h6>
                   </div>
-                  <h3 className="lg:text-5xl text-3xl font-bold pb-8 text-center py-4">Explorez nos services</h3>
+                  <h3 className="lg:text-5xl text-3xl font-bold pb-8 text-center py-4 text-white">Explorez nos services</h3>
               </div>
 
               <div className="py-8">
