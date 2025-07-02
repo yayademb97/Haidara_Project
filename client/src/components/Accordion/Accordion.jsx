@@ -34,7 +34,7 @@ const Accordion = () => {
       {items.map((item, index) => (
         <Disclosure key={index}>
             {({ open }) => (
-                <>
+                <div>
                     <DisclosureButton className={`w-full text-left bg-white rounded-sm p-4 flex items-center justify-between ${open ? "border-l-2" : "border mb-4"}`}>
                         <span className="font-bold text-lg">{item.title}</span>
                             { open ?  <IoChevronUpCircleOutline className="w-5 h-5 text-green" /> : <IoChevronDownCircleOutline className="w-5 h-5 text-gray-500" /> }
@@ -42,7 +42,7 @@ const Accordion = () => {
                     <DisclosurePanel className="bg-white p-4 border-l-2 border-green rounded-sm mb-2">
                         <p className="text-gray-600">{item.content}</p>
                     </DisclosurePanel>
-                </>
+                </div>
             )}
         </Disclosure>
       ))}

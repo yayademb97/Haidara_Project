@@ -7,6 +7,7 @@ import "aos/dist/aos.css";
 import Services from "./components/Services/Services";
 import Offers from "./components/Offers/Offers";
 import Tours from "./components/Tours/Tours";
+import Explore from "./components/Explore/Explore";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <Services />
       <Offers />
       <Tours />
+      <Explore />
       <Footer />
     </>
   );
