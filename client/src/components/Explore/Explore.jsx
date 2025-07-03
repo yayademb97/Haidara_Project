@@ -14,27 +14,33 @@ const Explore = () => {
   const why_Us = [
     // {
     //     text: "Un accueil personnalisé dès l’arrivée à l’aéroport, avec un accompagnement humain et bienveillant.",
-    //     icon: <FaVest size={60} />
+    //     icon: <FaVest size={60} />,
+    //     desc: "Un accueil chaleureux et professionnel pour commencer votre voyage en toute sérénité."
     // },
     // {
     //     text: "Assistance 24/7 via WhatsApp pour ne jamais être seul, même en situation imprévue.",
-    //     icon: <MdOutlineSupportAgent size={60} />
+    //     icon: <MdOutlineSupportAgent size={60} />,
+    //     desc: "Un support constant pour répondre à vos besoins, où que vous soyez."
     // },
     // {
     //     text: "Sécurité et surveillance des bagages à chaque étape de votre voyage.",
-    //     icon: <MdOutlineSecurity size={60} />
+    //     icon: <MdOutlineSecurity size={60} />,
+    //     desc: "Vos effets personnels sont en sécurité, vous pouvez voyager l’esprit tranquille."
     // },
     {
       text: "Coordination proactive avec les compagnies pour gérer retards ou changements.",
       icon: <MdOutlineFlightTakeoff size={60} />,
+      desc: "Une gestion efficace des imprévus pour que votre voyage se déroule sans accroc.",
     },
     {
       text: "Voyage adapté à chaque profil : VIP, famille, étudiant, mission humanitaire.",
       icon: <MdOutlineChecklist size={60} />,
+      desc: "Des solutions sur mesure pour répondre à vos besoins spécifiques.",
     },
     {
       text: "Gain de temps avec un embarquement fluide et des procédures accélérées.",
       icon: <MdOutlineAccessTime size={60} />,
+      desc: "Optimisez votre temps à l’aéroport pour profiter pleinement de votre voyage.",
     },
   ];
 
@@ -68,7 +74,7 @@ const Explore = () => {
                                 Pourquoi nous choisir ?
                             </h6>    
                     </div>
-                    <h3 className="lg:text-5xl text-3xl font-bold pb-8 py-4">
+                    <h3 className="lg:text-5xl text-3xl font-bold pb-8 py-4 text-white">
                         Des solutions qui transforment vos trajets en expériences sereines
                     </h3>
                 </div>
@@ -80,11 +86,8 @@ const Explore = () => {
                                     {item.icon}
                                 </span>
                                 <span className="lg:w-2/3">
-                                    <p className="font-bold text-xl pb-2">{item.text}</p>
-                                    <p className="text-gray-400">
-                                        Aenan placerat ut lacus nex pulvinar. Donec eu, ante at,
-                                        commodo diam.
-                                    </p>
+                                    <p className="font-bold text-xl pb-2 text-gray-200">{item.text}</p>
+                                    <p className="text-gray-400">{item.desc}</p>
                                 </span>
                             </div>
                         ))
