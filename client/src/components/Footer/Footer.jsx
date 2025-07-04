@@ -1,5 +1,5 @@
 import React from 'react'
-import { BsSend, BsTwitter } from 'react-icons/bs'
+import { BsSend, BsSendCheck, BsTwitter } from 'react-icons/bs'
 import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa'
 import { MdOutlineLocationOn, MdOutlineMailOutline, MdPhone } from 'react-icons/md'
 import { GoArrowUpRight } from 'react-icons/go'
@@ -59,20 +59,65 @@ const Footer = () => {
             </div>
             <div className="lg:w-1/5 text-white">
                 <h6 className="text-xl font-bold my-5 lg:mt-0">Pages</h6>
-                <ul className="flex flex-col gap-4">
-                  <a href="#" className="hover:text-green">Nos Sevices</a>
-                  <a href="#" className="hover:text-green">Expertise</a>
-                  <a href="#" className="hover:text-green">Travaillez avec Nous</a>
-                  <a href="#" className="hover:text-green">Politiques de Confidentialités</a>
-                  <a href="#" className="hover:text-green">Contact</a>
-                </ul>
+                  <ul className="flex flex-col gap-4">
+                    <a href="#" className="hover:text-green">Nos Sevices</a>
+                    <a href="#" className="hover:text-green">Expertise</a>
+                    <a href="#" className="hover:text-green">Travaillez avec Nous</a>
+                    <a href="#" className="hover:text-green">Politiques de Confidentialités</a>
+                    <a href="#" className="hover:text-green">Contact</a>
+                  </ul>
+            </div>
+
+            <div className="flex flex-col lg:w-1/3 text-white">
+                <h6 className="text-white text-xl font-bold my-5 lg:mt-0">Newsletter</h6>
+                <p className="my-5">Souscrire à notre Newsletter pour avoir nos nouveautés et mises à jours.</p>
+                <div className="relative h-14 flex items-center">
+                  <input type="email" placeholder="Adresse Email" className="bg-white rounded-l-lg px-3 h-full w-full outline-none" />
+                  <button className="bg-green text-white w-12 h-full flex items-center justify-center text-2xl rounded-r-lg">
+                    <BsSendCheck />
+                  </button>
+                </div>
+                <label className="pt-2">
+                  <input type="checkbox"  />  Je valide les conditions et règlements encadrant mon utilisation.
+                </label>
+            </div>
+
+            <div className="pt-[15px]">
+              <ul >
+                <div className="flex items-center gap-4">
+                  <button className="flex items-center gap-2 bg-[#262D28] rounded-full w-fit justify-center p-4 hover:text-green">
+                    <MdPhone className="text-green" />  
+                  </button>
+                  <span>
+                    <p>Contactez notre équipe</p>
+                    <p>+223 63 97 97 97</p>
+                  </span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <button className="flex items-center gap-2 bg-[#262D28] rounded-full w-fit justify-center p-4 hover:text-green">
+                    <MdOutlineMailOutline className="text-green" /> 
+                  </button>
+                  <span>
+                    <p>Adrresse Mail</p>
+                    <p>custom-assistance@gmail.com</p>
+                  </span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <button className="flex items-center gap-2 bg-[#262D28] rounded-full w-fit justify-center p-4 hover:text-green">
+                    <MdOutlineLocationOn className="text-green" />
+                  </button>
+                  <span>
+                    <p>Visiter nos Locaux</p>
+                    <p>Hamdallaye Aci 2000, Rue 511, Immeuble Dakolo</p>
+                  </span>
+                </div>
+              </ul>
             </div>
           </div>
-
-          <div>
-            
-          </div>
         </div>
+      </div>
+      <div className="bg-black text-white py-2 flex justify-center">
+          © Copyright par Yaya DEMBELE — Tous droits réservés.
       </div>
     </footer>
   )
