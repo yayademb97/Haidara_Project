@@ -9,6 +9,12 @@ import { PiStudent } from "react-icons/pi";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { useState } from "react";
 import ReactSlider from "react-slider";
+import img01 from "../../assets/assets/images/company-logo/Tunisair-Logo.png"
+import img02 from "../../assets/assets/images/company-logo/air-france-logo.png"
+import img03 from "../../assets/assets/images/company-logo/lufthansa-logo.png"
+import img04 from "../../assets/assets/images/company-logo/ethiopian-airlines-logo.png"
+import img05 from "../../assets/assets/images/company-logo/Qatar-Airways-Logo.png"
+import Rating from "../Rating/Rating";
 
 const Sidebar = () => {
   const [values, setValues] = useState([75000, 1000000]);
@@ -17,10 +23,15 @@ const Sidebar = () => {
     {
       id: 1,
       vol: "TU724",
+      imageVol: img01,
       compagnie: "Tunisair",
       destination: "Paris Orly",
       typeVoyage: "Aller-retour",
       dateRecherche: "2025-07-09T17:20:00Z",
+      dateDepart: "2025-07-30T09:00:00Z",
+      dateArrivee: "2025-08-06T18:00:00Z",
+      lieuDepart: "Tunis Carthage (Tunisie)",
+      lieuArrivee: "Aéroport Paris Orly (France)",
       statutVol: "À l'heure",
       aeroportDepart: "Tunis Carthage",
       icon: <FaPlaneDeparture />,
@@ -29,10 +40,15 @@ const Sidebar = () => {
     {
       id: 2,
       vol: "AF101",
+      imageVol: img02,
       compagnie: "Air France",
       destination: "Bamako",
       typeVoyage: "Humanitaire / étudiant",
       dateRecherche: "2025-07-09T17:22:00Z",
+      dateDepart: "2025-07-30T06:30:00Z",
+      dateArrivee: "2025-08-30T08:00:00Z",
+      lieuDepart: "Nice Côte d’Azur (France)",
+      lieuArrivee: "Aéroport International Modibo Keïta (Mali)",
       statutVol: "Retardé",
       aeroportDepart: "Nice Côte d’Azur",
       icon: <PiStudent />,
@@ -41,16 +57,74 @@ const Sidebar = () => {
     {
       id: 3,
       vol: "LH303",
+      imageVol: img03,
       compagnie: "Lufthansa",
       destination: "Berlin",
       typeVoyage: "Voyage touristique",
       dateRecherche: "2025-07-09T17:25:00Z",
+      dateDepart: "2025-07-30T12:00:00Z",
+      dateArrivee: "2025-08-04T14:30:00Z",
+      lieuDepart: "Tunis Carthage (Tunisie)",
+      lieuArrivee: "Berlin Brandenburg Airport (Allemagne)",
       statutVol: "Enregistrement en cours",
       aeroportDepart: "Tunis Carthage",
       icon: <FaBiking />,
       recommendation: true,
     },
+    {
+      id: 4,
+      vol: "ET901",
+      imageVol: img04,
+      compagnie: "Ethiopian Airlines",
+      destination: "Addis-Abeba",
+      typeVoyage: "Voyage touristique",
+      dateRecherche: "2025-07-09T17:28:00Z",
+      dateDepart: "2025-07-30T07:45:00Z",
+      dateArrivee: "2025-08-07T11:00:00Z",
+      lieuDepart: "Tunis Carthage (Tunisie)",
+      lieuArrivee: "Bole International Airport (Éthiopie)",
+      statutVol: "À l’heure",
+      aeroportDepart: "Tunis Carthage",
+      icon: <FaBiking />,
+      recommendation: true,
+    },
+    {
+      id: 5,
+      vol: "QR445",
+      imageVol: img05,
+      compagnie: "Qatar Airways",
+      destination: "Doha",
+      typeVoyage: "Voyage VIP / Premium",
+      dateRecherche: "2025-07-09T17:31:00Z",
+      dateDepart: "2025-07-30T20:00:00Z",
+      dateArrivee: "2025-07-30T23:45:00Z",
+      lieuDepart: "Tunis Carthage (Tunisie)",
+      lieuArrivee: "Hamad International Airport (Qatar)",
+      statutVol: "Confirmé",
+      aeroportDepart: "Tunis Carthage",
+      icon: <FaPlaneDeparture />,
+      recommendation: true,
+    }
   ];
+  
+  
+
+  const Card = () => {
+    return (
+      <>
+        {cardData.map((item) => (
+          <div key={item.id}>
+            <img src={item.imageVol} alt="" />
+            <span>
+              <Rating />
+              <h4>Compagnie Aérienne: {item.compagnie}</h4>
+              <span>Vol: <p>{item.vol}</p></span>
+            </span>
+          </div>
+        ))}
+      </>
+    )
+  }
 
   return (
     <div className="flex flex-col gap-8 lg:w-1/3">
@@ -186,6 +260,11 @@ const Sidebar = () => {
         <button className="w-full bg-green text-white rounded-lg h-16 my-4 flex justify-center items-center font-bold gap-2 text-white">
           <MdSearch /> Rechercher
         </button>
+      </div>
+
+      <div>
+        <h3>Vols détectés selon votre recherche</h3>
+        <Card />
       </div>
     </div>
   );
