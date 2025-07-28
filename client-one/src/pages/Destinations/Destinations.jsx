@@ -1,5 +1,6 @@
 import CardSlider from "../../components/CardSlider/CardSlider"
 import Sidebar from "../../components/Sidebar/Sidebar"
+import { BsSortAlphaDown } from "react-icons/bs"
 
 
 const Destinations = () => {
@@ -16,7 +17,21 @@ const Destinations = () => {
       <section>
         <Sidebar />
         <div>
-
+          <div>
+             <span>
+              {/* <strong>{volData.length}</strong> Vols */}
+             </span>
+             <span>
+                Filtré Par: <BsSortAlphaDown className="cursor-pointer" />
+             </span>
+             <select>
+              <option value="">Compagnie Aérienne</option>
+              <option value="">Destination</option>
+              <option value="">Lieu - Départ</option>
+              <option value="">Lieu - Arrivé</option>
+              <option value="">Aéroport</option>
+             </select>
+          </div>
         </div>
       </section>
     </div>

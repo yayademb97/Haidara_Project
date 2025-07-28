@@ -9,11 +9,11 @@ import { PiStudent } from "react-icons/pi";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { useState } from "react";
 import ReactSlider from "react-slider";
-import img01 from "../../assets/assets/images/company-logo/Tunisair-Logo.png"
-import img02 from "../../assets/assets/images/company-logo/air-france-logo.png"
-import img03 from "../../assets/assets/images/company-logo/lufthansa-logo.png"
-import img04 from "../../assets/assets/images/company-logo/ethiopian-airlines-logo.png"
-import img05 from "../../assets/assets/images/company-logo/Qatar-Airways-Logo.png"
+import img01 from "../../assets/assets/images/company-logo/Tunisair-Logo.png";
+import img02 from "../../assets/assets/images/company-logo/air-france-logo.png";
+import img03 from "../../assets/assets/images/company-logo/lufthansa-logo.png";
+import img04 from "../../assets/assets/images/company-logo/ethiopian-airlines-logo.png";
+import img05 from "../../assets/assets/images/company-logo/Qatar-Airways-Logo.png";
 import Rating from "../Rating/Rating";
 
 const Sidebar = () => {
@@ -36,6 +36,7 @@ const Sidebar = () => {
       aeroportDepart: "Tunis Carthage",
       icon: <FaPlaneDeparture />,
       recommendation: true,
+      rating: 3.8,
     },
     {
       id: 2,
@@ -52,7 +53,8 @@ const Sidebar = () => {
       statutVol: "Retardé",
       aeroportDepart: "Nice Côte d’Azur",
       icon: <PiStudent />,
-      recommendation: false,
+      recommendation: true,
+      rating: 4.8,
     },
     {
       id: 3,
@@ -69,7 +71,8 @@ const Sidebar = () => {
       statutVol: "Enregistrement en cours",
       aeroportDepart: "Tunis Carthage",
       icon: <FaBiking />,
-      recommendation: true,
+      recommendation: false,
+      rating: 4.0,
     },
     {
       id: 4,
@@ -87,6 +90,7 @@ const Sidebar = () => {
       aeroportDepart: "Tunis Carthage",
       icon: <FaBiking />,
       recommendation: true,
+      rating: 4.2,
     },
     {
       id: 5,
@@ -104,27 +108,36 @@ const Sidebar = () => {
       aeroportDepart: "Tunis Carthage",
       icon: <FaPlaneDeparture />,
       recommendation: true,
-    }
+      rating: 4.9,
+    },
   ];
-  
-  
 
   const Card = () => {
     return (
       <>
         {cardData.map((item) => (
-          <div key={item.id}>
-            <img src={item.imageVol} alt="" />
-            <span>
-              <Rating />
-              <h4>Compagnie Aérienne: {item.compagnie}</h4>
-              <span>Vol: <p>{item.vol}</p></span>
+          <div key={item.id} className="flex gap-6 border-b last:border-0 pt-4">
+            <img
+              src={item.imageVol}
+              width={90}
+              height={65}
+              alt=""
+              className="rounded-lg"
+            />
+            <span className="flex flex-col items-baseline gap-1">
+              <Rating rating={item.rating} />
+              <h4 className="text-base">
+                Compagnie Aérienne: {item.compagnie}
+              </h4>
+              <span className="text-gray-500 text-sm flex items-center gap-2">
+                Vol: <p className="text-green">{item.vol}</p>
+              </span>
             </span>
           </div>
         ))}
       </>
-    )
-  }
+    );
+  };
 
   return (
     <div className="flex flex-col gap-8 lg:w-1/3">
@@ -262,9 +275,27 @@ const Sidebar = () => {
         </button>
       </div>
 
-      <div>
-        <h3>Vols détectés selon votre recherche</h3>
+      <div className="rounded-lg border px-8 py-4">
+        <h3 className="text-xl font-semibold pb-4">
+          Vols détectés selon votre recherche
+        </h3>
         <Card />
+      </div>
+      <div className="relative group overflow-hidden rounded-[10px] shadow-lg">
+        <img
+          src="airfrance-img.png"
+          alt=""
+          className="w-full h-[350px] object-cover rounded-[10px] transition-transform duration-700 ease-in-out group-hover:scale-125"
+        />
+        <span className="bg-orange rounded-lg px-5 text-white text-xs absolute top-5 right-5 uppercase font-bold leading-8 whitespace-pre">3 Vols</span>
+        <div className="absolute bottom-0 w-full bg-black bg-opacity-50 py-5 flex flex-col items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:bg-opacity-100">
+          <p className="text-green text-xl font-bold flex flex-col">
+            Départ de{" "}
+            <span className="text-white text-2xl group-hover:text-gray-800">
+              Paris Orly (France)
+            </span>
+          </p>
+        </div>
       </div>
     </div>
   );
