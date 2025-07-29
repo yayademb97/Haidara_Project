@@ -1,7 +1,5 @@
-import React from 'react'
 
-const Vols = () => {
-    const volData = [
+export const volData = [
         {
           id: 1,
           vol: "TU724",
@@ -93,9 +91,7 @@ const Vols = () => {
           rating: 4.9,
         },
     ]
-  return (
-    <div>Vols</div>
-  )
-}
 
-export default Vols
+const VolsCard = () => {
+  
+}
